@@ -1,0 +1,194 @@
+:root {
+    --detail-font: 'Roboto Mono', monospace;
+    --red: #EE6352;
+    --orange: #E28B75;
+    --yellow: #F5B700;
+    --green: #59CD90;
+    --blue: #5386E4;
+    --purple: #8163AA;
+    --gray: #575555;
+    --brown: #B79492
+}
+
+* {
+    font-family: 'Rubik', sans-serif;
+    color: var(--gray);
+}
+
+body {
+    background-color: #FCFCFC;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#content {
+    /* border: 1px solid cyan; */
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+/* HEADER */
+header h1 {
+    font-weight: 600;
+    font-size: 4vw;
+    margin-bottom: -0.5vw;
+}
+
+/* HEADER NAVBAR */
+header .nav-item a {
+    text-decoration: none;
+    font-size: 2vw;
+    color: var(--gray)
+}
+
+
+/* SECTION - WHERE CONTENT WILL BE RENDERED */
+#section {
+    /* border: 1px solid magenta; */
+    border-top: 3.5px solid var(--purple);
+    border-bottom: 3.5px solid var(--purple);
+    height: 65vh;
+    overflow: hidden;
+}
+
+#section:hover {
+    overflow-y: scroll;
+}
+
+#section .section-title {
+    font-size: 7vw;
+    font-weight: 800;
+    color: var(--brown)
+}
+
+/* SECTION - ABOUT ME */
+#profile-pic {
+    width: 45%;
+}
+
+#bio {
+    width: 50%;
+}
+
+#bio p {
+    font-weight: 500;
+    font-size: 2vw;
+}
+
+/* SECTION - PORFOLIO */
+.project-card {
+    width: 49%;
+    border: 2px solid var(--gray);
+}
+
+.project-title {
+    font-weight: 600;
+    font-size: 2.25vw;
+    text-align: center;
+}
+
+.project-screenshot {
+    width: 97%;
+    display: block;
+    margin: 0 auto;
+}
+
+.project-description {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.1vw;
+}
+
+.project-links a {
+    text-decoration: none;
+    color: var(--green);
+    font-weight: 500;
+}
+
+/* SECTION - RESUME */
+#resume-link {
+    color: var(--red);
+    width: 45%;
+}
+
+#skill-list {
+    width: 55%;
+}
+
+#skill-list h4 {
+    font-size: 3vw;
+    border-bottom: 2px solid var(--gray);
+}
+
+#skill-list p {
+    font-size: 2.5vw;
+}
+
+/* SECTION - CONTACT */
+#contact form {
+    display: block;
+    /* border: 1px solid cyan; */
+    width: 80%;
+    margin: 0 auto;
+}
+
+.contact-label {
+    font-weight: 500;
+    font-size: 2.5vw;
+    /* color: var(--yellow) */
+}
+
+.contact-input {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.5vw;
+    border: 2px solid var(--gray);
+    background-color: #FCFCFC;
+}
+
+.contact-input:focus {
+    outline: none;
+}
+
+.error-msg {
+    padding-bottom: -10px;
+    height: 1.75vw;
+    border: 1px solid var(--yellow);
+    background-color: var(--yellow);
+    border-radius: 15px;
+    font-size: 1.25vw;
+    color: #FCFCFC;
+}
+
+.submit-btn {
+    display: block;
+    background-color: var(--yellow);
+    color: #FCFCFC;
+    border: 1px solid var(--yellow);
+    border-radius: 30px;
+    padding: 5px 45px;
+    font-size: 1.75vw;
+    margin: 0 auto;
+}
+
+.submit-btn:hover {
+    border: 2px solid var(--yellow);
+    background-color: #FCFCFC;
+    color: var(--yellow)
+}
+
+/* FOOTER */
+footer div {
+    width: 45%;
+}
+footer div p a,
+footer p {
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 1.5vw;
+    font-weight: 500;
+}
