@@ -1,3 +1,9 @@
+:root {
+    --purple: #8163AA;
+    --gray: #575555;
+    --brown: #B79492
+}
+
 * {
     font-family: 'Rubik', sans-serif;
     color: var(--gray);
