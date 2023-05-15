@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigation from './Navigation'
 
 const styles = {
     h1: {
@@ -9,11 +8,11 @@ const styles = {
     }
 }
 
-export default function Header() {
+export default function Header(props) {
     return (
         <div className="navbar d-flex align-items-end">
             <h1 className="mx-3" style={styles.h1}>Grace Roh.</h1>
-            <Navigation />
+            {props.nav}
         </div>
     )
 }
