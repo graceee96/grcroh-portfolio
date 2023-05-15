@@ -109,7 +109,7 @@ export default function ContactForm() {
                 </div>
 
                 <div className="mt-4 py-4">
-                    <button className="submit-btn">send</button>
+                    <button className="submit-btn" onClick={handleFormSubmit}>send</button>
                 </div>
             </form>
         </div>

@@ -38,8 +38,8 @@ export default function ProjectCard({ id, project_title, image, github_url, depl
             <p className="mt-3 px-2" style={styles.info}>{description}</p>
 
             <div className="d-flex justify-content-between">
-                <Link to={github_url} style={styles.links}>Link to GitHub</Link>
-                <Link to={deployed_url} style={styles.links}>Link to application</Link>
+                <a href={github_url} target="_blank" style={styles.links}>Link to GitHub</a>
+                <a href={deployed_url} target="_blank" style={styles.links}>Link to application</a>
             </div>
         </div>
 )

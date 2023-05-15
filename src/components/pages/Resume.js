@@ -23,7 +23,7 @@ export default function Resume() {
             <h2 className="section-title mb-4">Resume.</h2>
 
             <div className="d-flex justify-content-between">
-                <h3><Link to="https://drive.google.com/file/d/1yX_Mcdt6li2MwKCx4Hd1EAf9AymzYeCQ/view?usp=sharing" style={styles.link}>View resume here ↗</Link></h3>
+                <h3><a href="https://drive.google.com/file/d/1yX_Mcdt6li2MwKCx4Hd1EAf9AymzYeCQ/view?usp=sharing" target="_blank" style={styles.link}>View resume here ↗</a></h3>
 
                 <div style={styles.skillList}>
                     <div className="mb-4">
