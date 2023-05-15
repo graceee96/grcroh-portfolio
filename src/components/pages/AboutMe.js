@@ -10,7 +10,7 @@ const styles = {
     },
     paragraph: {
         fontWeight: 500,
-        fontSize: '2vw'
+        fontSize: '1.75vw'
     }
 }
 

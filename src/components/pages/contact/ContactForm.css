@@ -13,13 +13,13 @@
 
 .contact-label {
     font-weight: 500;
-    font-size: 2.5vw;
+    font-size: 2vw;
     /* color: var(--yellow) */
 }
 
 .contact-input {
     font-family: var(--detail-font);
-    font-size: 1.5vw;
+    font-size: 1vw;
     border: 2px solid var(--gray);
     background-color: #FCFCFC;
 }
@@ -35,7 +35,7 @@
     border: 1px solid var(--yellow);
     border-radius: 30px;
     padding: 5px 45px;
-    font-size: 1.75vw;
+    font-size: 1.25vw;
     margin: 0 auto;
 }
 

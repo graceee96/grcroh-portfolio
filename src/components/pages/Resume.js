@@ -9,11 +9,11 @@ const styles = {
         width: '55%'
     },
     listHeader: {
-        fontSize: '3vw',
+        fontSize: '2.25vw',
         borderBottom: '2px solid #575555'
     },
     skills: {
-        fontSize: '2.5vw',
+        fontSize: '1.75vw',
     }
 }
 

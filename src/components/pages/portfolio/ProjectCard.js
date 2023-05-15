@@ -2,7 +2,7 @@ import React from 'react';
 
 const styles = {
     card: {
-        width: '49%',
+        width: '48%',
         border: '2px solid #575555'
     },
     title: {
@@ -17,12 +17,13 @@ const styles = {
     },
     info: {
         fontFamily: "'Roboto Mono', monospace",
-        fontSize: '1.1vw',
+        fontSize: '1vw',
     },
     links: {
         textDecoration: 'none',
         color: '#59CD90',
         fontWeight: 500,
+        fontSize: '1.25vw'
     }
 }
 
