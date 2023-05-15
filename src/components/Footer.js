@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="d-flex justify-content-around"  style={styles.links}>
                 <p><a href="https://github.com/graceee96" target="_blank" style={styles.text}>GitHub</a></p>
                 <p><a href="https://www.linkedin.com/in/grcroh/" target="_blank" style={styles.text}>LinkedIn</a></p>
-                <p style={styles.text}>coming soon...</p>
+                <p><a href="https://stackoverflow.com/users/21899101/graceee96" target="_blank" style={styles.text}>Stack Overflow</a></p>
             </div>
             <p class="mx-3" >© Made with 💛 in 2023</p>
         </div>
