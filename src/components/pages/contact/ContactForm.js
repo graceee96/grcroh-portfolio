@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ErrorMessage from './ErrorMessage';
 import './ContactForm.css';
+import { render } from '@testing-library/react';
 
 export default function ContactForm() {
     //state variable for name, email, message
@@ -43,22 +44,25 @@ export default function ContactForm() {
 
         if (!name || !email || !message) {
             setError(true)
-            return [
-                setErrorType('empty'),
-                setErrorMessage('this field is required!')
-            ]
+            return setErrorType('empty');
         } else if (!validateEmail) {
             setError(true)
-            return [
-                setErrorType('invalidEmail'),
-                setErrorMessage('invalid email!')
-            ]
+            return setErrorType('invalidEmail');
         } else {
             setError(false);
-            return [
-                setErrorType(''),
-                setErrorMessage('')
-            ]
+            return setErrorType('');
+        }
+    }
+
+    const renderErrorMessage = () => {
+        if (errorType === 'empty') {
+            return setErrorMessage('this field is required!')
+        }
+        if (errorType === 'invalidEmail') {
+            return setErrorMessage('invalid email!')
+        }
+        if (errorType === '') {
+            return;
         }
     }
     
@@ -71,7 +75,7 @@ export default function ContactForm() {
                     <div className="d-flex justify-content-between align-items-end">
                         <label for="sender-name" className="d-block contact-label">name</label>
                         {/* error message goes here */}
-                        {error ? <ErrorMessage message={errorMessage} /> : null}
+                        {!error ? null : <ErrorMessage message={renderErrorMessage} />}
                     </div>
                     <input
                         type="text"
@@ -87,7 +91,7 @@ export default function ContactForm() {
                     <div className="d-flex justify-content-between align-items-end">
                         <label for="sender-email" className="d-block contact-label">email</label>
                         {/* error message goes here */}
-                        {error ? <ErrorMessage message={errorMessage} /> : null}
+                        {!error ? null : <ErrorMessage message={renderErrorMessage} />}
                     </div>
                     <input
                         type="email"
@@ -103,7 +107,7 @@ export default function ContactForm() {
                     <div className="d-flex justify-content-between align-items-end">
                         <label for="message" className="d-block contact-label">message</label>
                         {/* error message goes here */}
-                        {error ? <ErrorMessage message={errorMessage} /> : null}
+                        {!error ? null : <ErrorMessage message={renderErrorMessage} />}
                     </div>
                     <textarea name="message" id="message" rows="5" className="contact-input w-100 p-3" value={message} onChange={handleInputChange}></textarea>
                 </div>
