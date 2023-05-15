@@ -1,0 +1,46 @@
+:root {
+    --detail-font: 'Roboto Mono', monospace;
+    --yellow: #F5B700;
+    --gray: #575555;
+}
+
+#contact form {
+    display: block;
+    /* border: 1px solid cyan; */
+    width: 80%;
+    margin: 0 auto;
+}
+
+.contact-label {
+    font-weight: 500;
+    font-size: 2.5vw;
+    /* color: var(--yellow) */
+}
+
+.contact-input {
+    font-family: var(--detail-font);
+    font-size: 1.5vw;
+    border: 2px solid var(--gray);
+    background-color: #FCFCFC;
+}
+
+.contact-input:focus {
+    outline: none;
+}
+
+.submit-btn {
+    display: block;
+    background-color: var(--yellow);
+    color: #FCFCFC;
+    border: 1px solid var(--yellow);
+    border-radius: 30px;
+    padding: 5px 45px;
+    font-size: 1.75vw;
+    margin: 0 auto;
+}
+
+.submit-btn:hover {
+    border: 2px solid var(--yellow);
+    background-color: #FCFCFC;
+    color: var(--yellow)
+}

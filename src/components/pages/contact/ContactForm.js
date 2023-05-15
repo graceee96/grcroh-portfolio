@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ErrorMessage from './ErrorMessage';
+import './ContactForm.css';
 
 export default function ContactForm() {
     //state variable for name, email, message
