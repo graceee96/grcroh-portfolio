@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
-import projects from './utils/projects';
+import projects from './projects'
 
 export default function Portfolio() {
     return (
@@ -9,3 +9,5 @@ export default function Portfolio() {
         ))
     )
 }
+
+console.log(projects);

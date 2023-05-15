@@ -1,12 +1,12 @@
 // import images
-import techBlog from 'src/assets/images/tech-blog.png';
-import weatherDashboard from 'src/assets/images/weather-dashboard.png';
-import thankYou from 'src/assets/images/tyfbaf.png';
-import cineman from 'src/assets/images/cineman.png';
-import codeQuiz from 'src/assets/images/code-quiz.png';
-import noteTaker from 'src/assets/images/note-taker.png'
+import techBlog from '../../../assets/images/tech-blog.png';
+import weatherDashboard from '../../../assets/images/weather-dashboard.png';
+import thankYou from '../../../assets/images/tyfbaf.png';
+import cineman from '../../../assets/images/cineman.png';
+import codeQuiz from '../../../assets/images/code-quiz.png';
+import noteTaker from '../../../assets/images/note-taker.png'
 
-export const projects = [
+const projects = [
     {
         "id": 1,
         "project_title": "Tech•Prose•Poetry Blog",
@@ -56,3 +56,5 @@ export const projects = [
         "description": "A note-taking application to help users keep track of their tasks. Users can write notes, access past notes, and delete notes."
     }
 ];
+
+export default projects;
