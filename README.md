@@ -29,6 +29,8 @@ Users can click on the navigation links to learn more about Grace Roh, her proje
 ![Contact page](./public/assets/images/contact.png)
 
 ## Credits
+- Brian Design - [React Form Validation Using Custom Hooks Tutorial - Beginner React JS Project
+](https://www.youtube.com/watch?v=KGFG-yQD7Dw&ab_channel=BrianDesign)
 
 ## License
 

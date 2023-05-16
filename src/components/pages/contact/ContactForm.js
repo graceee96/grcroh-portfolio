@@ -1,28 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ErrorMessage from './ErrorMessage';
 import './ContactForm.css';
 import { render } from '@testing-library/react';
 
+const styles = {
+    successMessage: {
+        textAlign: 'center',
+        fontSize: '1.25vw',
+        fontWeight: 500
+    }
+}
+
 export default function ContactForm() {
+    const [error, setError] = useState(false);
+    const [sendSuccess, setSendSuccess] = useState(false);
+    
     //state variable for name, email, message
-    const [name, setName] = useState('');
+    const [senderName, setSenderName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
-    //state variable - error
-    const [error, setError] = useState(false);
-
     //state variable - error type
     const [errorType, setErrorType] = useState('');
-
-    //state variable - error message
-    const [errorMessage, setErrorMessage] = useState('');
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
         if (name === 'senderName') {
-            return setName(value)
+            return setSenderName(value)
         } else if (name === 'senderEmail') {
             return setEmail(value)
         } else {
@@ -30,41 +35,25 @@ export default function ContactForm() {
         }
     }
 
-    const validateEmail = (email) => {
-        const emailAddress = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-        
-        return emailAddress.test(email);
-    }
-
     const handleFormSubmit = (e) => {
         e.preventDefault();
         
         // if value is empty set error type state variable to empty
         // if input type is an email and value is not a correct email then set error type state variable to invalid email
-
-        if (!name || !email || !message) {
-            setError(true)
-            return setErrorType('empty');
-        } else if (!validateEmail) {
-            setError(true)
-            return setErrorType('invalidEmail');
-        } else {
-            setError(false);
-            return setErrorType('');
+        if (!senderName || !email || !message) {
+            return [setErrorType('noName'), setError(true)];
+        }
+        if (!/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(email) || !email) {
+            return [setErrorType('invalidEmail'), setError(true)];
+        }
+        if (!message) {
+            return [setErrorType('noMessage'), setError(true)];
+        }
+        if (senderName && email && message && /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(email)) {
+            return [setSendSuccess(true), setError(false)];
         }
     }
 
-    const renderErrorMessage = () => {
-        if (errorType === 'empty') {
-            return setErrorMessage('this field is required!')
-        }
-        if (errorType === 'invalidEmail') {
-            return setErrorMessage('invalid email!')
-        }
-        if (errorType === '') {
-            return;
-        }
-    }
     
     return (
         <div id="contact" className="h-100">
@@ -73,25 +62,26 @@ export default function ContactForm() {
             <form>
                 <div>
                     <div className="d-flex justify-content-between align-items-end">
-                        <label for="sender-name" className="d-block contact-label">name</label>
+                        <label htmlFor="sender-name" className="d-block contact-label">name</label>
                         {/* error message goes here */}
-                        {!error ? null : <ErrorMessage message={renderErrorMessage} />}
+                        {error && errorType === 'noName' ? <ErrorMessage message={'name is required!'} /> : null }
+
                     </div>
                     <input
                         type="text"
                         onChange={handleInputChange}
                         id="sender-name"
                         className="contact-input w-100 p-3"
-                        value={name}
+                        value={senderName}
                         name="senderName"
                     />
                 </div>
 
                 <div className="mt-2">
                     <div className="d-flex justify-content-between align-items-end">
-                        <label for="sender-email" className="d-block contact-label">email</label>
+                        <label htmlFor="sender-email" className="d-block contact-label">email</label>
                         {/* error message goes here */}
-                        {!error ? null : <ErrorMessage message={renderErrorMessage} />}
+                        {error && errorType === 'invalidEmail' ? <ErrorMessage message={'invalid email!'} /> : null}
                     </div>
                     <input
                         type="email"
@@ -105,15 +95,19 @@ export default function ContactForm() {
 
                 <div className="mt-2">
                     <div className="d-flex justify-content-between align-items-end">
-                        <label for="message" className="d-block contact-label">message</label>
+                        <label htmlFor="message" className="d-block contact-label">message</label>
                         {/* error message goes here */}
-                        {!error ? null : <ErrorMessage message={renderErrorMessage} />}
+                        {error && errorType === 'noMessage' ? <ErrorMessage message={'this field cannot be empty!'} /> : null}
+
                     </div>
                     <textarea name="message" id="message" rows="5" className="contact-input w-100 p-3" value={message} onChange={handleInputChange}></textarea>
                 </div>
 
                 <div className="mt-4 py-4">
+                    {/* message successfully sent message here */}
+                    {!error && sendSuccess ? <p style={styles.successMessage} className="mb-3">message sent successfully!</p> : null}
                     <button className="submit-btn" onClick={handleFormSubmit}>send</button>
+                    
                 </div>
             </form>
         </div>
