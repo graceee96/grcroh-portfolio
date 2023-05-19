@@ -21,36 +21,54 @@ export default function ContactForm() {
     const [message, setMessage] = useState('');
 
     //state variable - error type
-    const [errorType, setErrorType] = useState('');
+    const [errorNameType, setErrorNameType] = useState('');
+    const [errorEmailType, setErrorEmailType] = useState('');
+    const [errorMessageType, setErrorMessageType] = useState('');
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-
+        setError(false);
         if (name === 'senderName') {
             return setSenderName(value)
         } else if (name === 'senderEmail') {
             return setEmail(value)
-        } else {
+        } else if (name === 'message') {
             return setMessage(value)
         }
+        
     }
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
+
+        console.log(senderName);
+        console.log(email);
+        console.log(message);
+        
+        setErrorNameType('');
+        setErrorEmailType('');
+        setErrorMessageType('');
         
         // if value is empty set error type state variable to empty
         // if input type is an email and value is not a correct email then set error type state variable to invalid email
-        if (!senderName || !email || !message) {
-            return [setErrorType('noName'), setError(true)];
+        if (!senderName) {
+            setErrorNameType('noName');
+            setError(true);
         }
         if (!/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(email) || !email) {
-            return [setErrorType('invalidEmail'), setError(true)];
+            setErrorEmailType('invalidEmail');
+            setError(true);
         }
         if (!message) {
-            return [setErrorType('noMessage'), setError(true)];
+            setErrorMessageType('noMessage');
+            setError(true);
         }
         if (senderName && email && message && /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(email)) {
-            return [setSendSuccess(true), setError(false)];
+            setSendSuccess(true);
+            setError(false);
+            setErrorNameType('');
+            setErrorEmailType('');
+            setErrorMessageType('');
         }
     }
 
@@ -64,7 +82,7 @@ export default function ContactForm() {
                     <div className="d-flex justify-content-between align-items-end">
                         <label htmlFor="sender-name" className="d-block contact-label">name</label>
                         {/* error message goes here */}
-                        {error && errorType === 'noName' ? <ErrorMessage message={'name is required!'} /> : null }
+                        {error && errorNameType === 'noName' ? <ErrorMessage message={'name is required!'} /> : null }
 
                     </div>
                     <input
@@ -81,7 +99,7 @@ export default function ContactForm() {
                     <div className="d-flex justify-content-between align-items-end">
                         <label htmlFor="sender-email" className="d-block contact-label">email</label>
                         {/* error message goes here */}
-                        {error && errorType === 'invalidEmail' ? <ErrorMessage message={'invalid email!'} /> : null}
+                        {error && errorEmailType === 'invalidEmail' ? <ErrorMessage message={'invalid email!'} /> : null}
                     </div>
                     <input
                         type="email"
@@ -97,7 +115,7 @@ export default function ContactForm() {
                     <div className="d-flex justify-content-between align-items-end">
                         <label htmlFor="message" className="d-block contact-label">message</label>
                         {/* error message goes here */}
-                        {error && errorType === 'noMessage' ? <ErrorMessage message={'this field cannot be empty!'} /> : null}
+                        {error && errorMessageType === 'noMessage' ? <ErrorMessage message={'this field cannot be empty!'} /> : null}
 
                     </div>
                     <textarea name="message" id="message" rows="5" className="contact-input w-100 p-3" value={message} onChange={handleInputChange}></textarea>
