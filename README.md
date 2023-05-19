@@ -14,7 +14,7 @@ N/A
 
 Users can click on the navigation links to learn more about Grace Roh, her projects, and her proficiencies. Users can also click on the contact me to reach Grace Roh. In the footer, there are links to the developer's GitHub, LinkedIn, and Stack Overflow profiles.
 
-> Link to deployed application:
+> Link to deployed application: https://graceee96.github.io/grcroh-portfolio/
 
 ### Screenshot of the About Me page
 ![About Me page](./public/assets/images/aboutme.png)
